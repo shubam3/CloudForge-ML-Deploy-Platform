@@ -2,17 +2,6 @@
 
 This project is built **phase-by-phase** from `ML_Deployments/ai_cloud_platform_cursor_guide.md`.
 
-## Docs
-
-- `docs/ARCHITECTURE.md`
-- `docs/API.md`
-- `docs/OPERATIONS.md`
-- `docs/INTERVIEW_GUIDE.md`
-- `docs/RUN_LOCAL_AND_CLOUD.md`
-- `docs/PROJECT_THEORY.md`
-
-## Resume-ready summary
-
 **Cloud‑Native ML Model Deployment Platform** — Built a platform to upload ML artifacts, deploy inference services on Kubernetes, expose prediction APIs via FastAPI, and monitor performance with Prometheus + Grafana; added automated deployment generation and CPU-based autoscaling.
 
 ## Phase 1 (local inference)
