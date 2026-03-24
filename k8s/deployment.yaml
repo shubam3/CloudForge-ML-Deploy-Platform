@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: model-service
+  labels:
+    app: model-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: model-service
+  template:
+    metadata:
+      labels:
+        app: model-service
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "8000"
+        prometheus.io/path: "/metrics"
+    spec:
+      containers:
+        - name: model-service
+          image: model-service:local
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8000
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 3
+            periodSeconds: 5
+
